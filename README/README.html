@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>README.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="lerobot%E9%80%82%E9%85%8Djaka%E6%95%B0%E6%8D%AE%E9%87%87%E9%9B%86">lerobot适配jaka数据采集</h1>
+<h2 id="%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE">环境配置</h2>
+<h3 id="%E5%AE%89%E8%A3%85lerobot">安装lerobot</h3>
+<ul>
+<li>
+<p>如果有梯子直接访问lerobot官网下载教程进行下载，跳过下列步骤，注意下载0.4.4的版本</p>
+</li>
+<li>
+<p>https://huggingface.co/docs/lerobot/v0.4.4/en/installation
+<img src="image-1.png" alt="alt text"></p>
+</li>
+</ul>
+<h3 id="%E5%AE%89%E8%A3%85miniforge3">安装miniforge3</h3>
+<ul>
+<li>
+<p>已有conda环境可跳过</p>
+</li>
+<li>
+<p>通过清华镜像站下载 https://mirrors.tuna.tsinghua.edu.cn/github-release/conda-forge/miniforge/LatestRelease/（任选windows-x86_64版本即可）
+<img src="image.png" alt="alt text"></p>
+</li>
+</ul>
+<h3 id="%E5%AE%89%E8%A3%85git-bash">安装git bash</h3>
+<h3 id="%E5%AE%89%E8%A3%85-lerobot">安装 lerobot</h3>
+<ul>
+<li>
+<p>在 git bash 中依次执行以下命令：</p>
+<pre class="hljs"><code><div><span class="hljs-comment"># 创建虚拟环境</span>
+conda create -y -n lerobot python=3.10
+
+<span class="hljs-comment"># 激活虚拟环境</span>
+conda activate lerobot
+
+<span class="hljs-comment"># 克隆仓库（版本 0.4.4）</span>
+git <span class="hljs-built_in">clone</span> -b 0.4.4 https://github.com/huggingface/lerobot.git
+
+<span class="hljs-comment"># 进入目录</span>
+<span class="hljs-built_in">cd</span> lerobot
+
+<span class="hljs-comment"># 以可编辑模式安装</span>
+pip install -e .
+</div></code></pre>
+</li>
+</ul>
+<h3 id="%E4%B8%8B%E8%BD%BD%E9%A1%B9%E7%9B%AE%E5%8C%85">下载项目包</h3>
+<ul>
+<li>建议将项目文件解压缩到之前下载的lerobot目录下</li>
+</ul>
+<h2 id="%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84">项目结构</h2>
+<ul>
+<li>lerobot_robot_jaka 适配lerobot的jaka接口实现</li>
+<li>lerobot_teleoperator_jaka_teleop 适配lerobot的遥操作实现</li>
+<li>jakaAPI.dll等 jaka的python SDK</li>
+<li>test_teleop.py 测试遥操作模块</li>
+<li>test_motor.py 测试主臂舵机，以及是否能正确转换为jaka关节运动信息</li>
+<li>record.py 主臂从臂数据采集程序</li>
+<li>dataset_merge.py 多个数据集合并程序</li>
+<li>act_model.py 本地ACT模型推理程序</li>
+</ul>
+<h2 id="%E8%BF%90%E8%A1%8C%E6%95%99%E7%A8%8B">运行教程</h2>
+<h3 id="1-%E9%85%8D%E7%BD%AE%E6%9C%BA%E6%A2%B0%E8%87%82">1 配置机械臂</h3>
+<ul>
+<li>
+<p>连接同构机械臂的数据线和节卡机械臂网线，确定同构机械臂对应的端口号和节卡机械臂的ip</p>
+</li>
+<li>
+<p>修改test_motor.py中对应配置部分并运行，测试主臂舵机数据能否正常读取并转换为jaka关节数据，实现同步的遥操作</p>
+</li>
+<li>
+<p>修改lerobot_teleoperator_jaka_teleop/lerobot_teleoperator_jaka_teleop/config_jaka_teleop.py中的PORT为主臂对应实际端口号</p>
+</li>
+<li>
+<p>修改test_teleop.py中的SLAVE_IP为对应节卡机械臂的实际ip，运行并测试能否正常校准与遥操作</p>
+</li>
+</ul>
+<h3 id="2-%E6%95%B0%E6%8D%AE%E9%87%87%E9%9B%86">2 数据采集</h3>
+<ul>
+<li>
+<p>record.py中修改录制配置部分（从臂ip，相机配置，任务描述，一次采集时长等）</p>
+</li>
+<li>
+<p>运行record.py，连接成功后按回车进行主从臂校准，等待运动完成后按回车开始本次数据采集</p>
+</li>
+</ul>
+<h3 id="3-%E6%95%B0%E6%8D%AE%E9%9B%86%E5%90%88%E5%B9%B6">3 数据集合并</h3>
+<ul>
+<li>
+<p>若多次进行录制得到多个数据集，可以运行dataset_merge.py进行数据集合并（更改对应数据集目录）</p>
+</li>
+<li>
+<p>若有huggingface平台账号且可以访问，可以将数据集进行上传</p>
+</li>
+</ul>
+<h3 id="4-%E6%A8%A1%E5%9E%8B%E8%AE%AD%E7%BB%83">4 模型训练</h3>
+<ul>
+<li>
+<p>云服务器上参照之前lerobot环境配置说明进行配置</p>
+</li>
+<li>
+<p>ACT训练lerobot原生已支持，参考lerobot官方教程的act训练命令：</p>
+<pre class="hljs"><code><div>lerobot-train \
+  --dataset.repo_id=<span class="hljs-variable">${HF_USER}</span>/your_dataset \
+  --policy.type=act \
+  --output_dir=outputs/train/act_your_dataset \
+  --job_name=act_your_dataset \
+  --policy.device=cuda \
+  --wandb.enable=<span class="hljs-literal">true</span> \
+  --policy.repo_id=<span class="hljs-variable">${HF_USER}</span>/act_policy
+</div></code></pre>
+</li>
+</ul>
+<h3 id="5-%E6%A8%A1%E5%9E%8B%E6%8E%A8%E7%90%86">5 模型推理</h3>
+<ul>
+<li>
+<p>以ACT为例</p>
+</li>
+<li>
+<p>将云服务器上的模型训练文件pretrained_model文件夹传输到本地和机械臂连接的设备上，修改act_model.py中对应配置运行即可</p>
+</li>
+</ul>
+
+</body>
+</html>

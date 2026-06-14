@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "lerobot_teleoperator_jaka_teleop"
+version = "0.1.0"
+description = "Jaka teleoperation robot integration for LeRobot"
+requires-python = ">=3.10"
+dependencies = [
+    "lerobot>=0.4.0",
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["lerobot_teleoperator_jaka_teleop*"]
+exclude = ["*.egg-info"]

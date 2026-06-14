@@ -1,0 +1,54 @@
+# Python caches and local build artifacts
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.egg-info/
+build/
+dist/
+
+# Local environments and editor settings
+.conda/
+.venv/
+venv/
+env/
+.cache/
+.vscode/
+
+# Legacy JAKA SDK binaries
+SDK/
+*.dll
+*.lib
+*.exp
+
+# Logs and generated analysis outputs
+master_logs/
+servo_logs/
+*.log
+*_output.jsonl
+verify_transform_output.jsonl
+
+# Local test file containing private Hugging Face token
+test_dataset.py
+
+# Datasets and generated LeRobot metadata
+my_dataset/
+jaka_push_dataset/
+meta/
+*.parquet
+*.mp4
+
+# Trained models, checkpoints, and large tensor files
+SMolVLAmodel/
+RCTmodel/
+outputs/
+checkpoints/
+*.safetensors
+*.ckpt
+*.pt
+*.pth
+*.onnx
+
+# OS noise
+.DS_Store
+Thumbs.db
